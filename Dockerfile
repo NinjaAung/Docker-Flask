@@ -6,7 +6,12 @@ WORKDIR /app
 
 ADD . /app
 
+ENV FLASK_APP=app.py
+
+ENV FLASK_RUN_HOST=0.0.0.0
 
 RUN pip3 install -r requirements.txt
 
-CMD ["python", "app.py"]
+EXPOSE  5000
+
+CMD ["flask", "run"]
